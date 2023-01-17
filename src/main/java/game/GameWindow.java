@@ -1,7 +1,13 @@
 package game;
 
+import game.scene.LevelEditorScene;
+import game.scene.LevelScene;
+import game.scene.Scene;
+import game.ulti.RGBA;
 import game.key.KeyListener;
 import game.mouse.MouseListener;
+import lombok.Getter;
+import lombok.Setter;
 import org.lwjgl.*;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
@@ -16,16 +22,21 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
+@Getter
+@Setter
 public class GameWindow {
     private final int height, width;
     private final String title;
     private long windowHandle;
     private static GameWindow gameWindow;
+    private RGBA color;
+    private Scene currentScene;
 
     private GameWindow() {
         height = 1366;
         width = 768;
         title = "Mario";
+        color = new RGBA(1, 1, 1, 1, true);
     }
 
     private void init() {
@@ -64,11 +75,11 @@ public class GameWindow {
 
         // Get the thread stack and push a new frame
         try (MemoryStack stack = stackPush()) {
-            IntBuffer pWidth = stack.mallocInt(1); // int*
-            IntBuffer pHeight = stack.mallocInt(1); // int*
+            IntBuffer w = stack.mallocInt(1); // int*
+            IntBuffer h = stack.mallocInt(1); // int*
 
             // Get the window size passed to glfwCreateWindow
-            glfwGetWindowSize(windowHandle, pWidth, pHeight);
+            glfwGetWindowSize(windowHandle, w, h);
 
             // Get the resolution of the primary monitor
             GLFWVidMode vidMode = glfwGetVideoMode(glfwGetPrimaryMonitor());
@@ -77,8 +88,8 @@ public class GameWindow {
             assert vidMode != null;
             glfwSetWindowPos(
                     windowHandle,
-                    (vidMode.width() - pWidth.get(0)) / 2,
-                    (vidMode.height() - pHeight.get(0)) / 2);
+                    (vidMode.width() - w.get(0)) / 2,
+                    (vidMode.height() - h.get(0)) / 2);
         } // the stack frame is popped automatically
 
         // Make the OpenGL context current
@@ -98,13 +109,13 @@ public class GameWindow {
         // bindings available for use.
         GL.createCapabilities();
 
-        // Set the clear color
-        glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
-
         // Run the rendering loop until the user has attempted to close
         // the window or has pressed the ESCAPE key.
         while (!glfwWindowShouldClose(windowHandle)) {
-            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
+            // Set the clear color
+            glClearColor(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
+            // clear the framebuffer
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
             glfwSwapBuffers(windowHandle); // swap the color buffers
 
@@ -133,5 +144,18 @@ public class GameWindow {
         // Terminate GLFW and free the error callback
         glfwTerminate();
         Objects.requireNonNull(glfwSetErrorCallback(null)).free();
+    }
+
+    public void changeScene(int scene) {
+        switch (scene) {
+            case 0:
+                currentScene = new LevelEditorScene();
+                break;
+            case 1:
+                currentScene = new LevelScene();
+                break;
+            default:
+                assert false: "Unknown scene: " + scene + System.lineSeparator();
+        }
     }
 }
