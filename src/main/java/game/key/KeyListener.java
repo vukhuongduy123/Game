@@ -1,6 +1,5 @@
 package game.key;
 
-import game.mouse.MouseListener;
 import lombok.Getter;
 import lombok.Setter;
 
