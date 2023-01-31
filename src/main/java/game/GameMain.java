@@ -1,6 +1,8 @@
-import game.GameWindow;
+package game;
 
-public class Main {
+import game.window.GameWindow;
+
+public class GameMain {
     public static void main(String[] args) {
         GameWindow.getInstance().run();
     }

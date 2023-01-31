@@ -1,11 +1,12 @@
-package game;
+package game.window;
 
-import game.scene.LevelEditorScene;
-import game.scene.LevelScene;
-import game.scene.Scene;
-import game.ulti.RGBA;
-import game.key.KeyListener;
-import game.mouse.MouseListener;
+import game.window.scene.LevelEditorScene;
+import game.window.scene.LevelScene;
+import game.window.scene.Scene;
+import game.window.ulti.RGBA;
+import game.window.key.KeyListener;
+import game.window.mouse.MouseListener;
+import game.window.ulti.Time;
 import lombok.Getter;
 import lombok.Setter;
 import org.lwjgl.*;
@@ -36,7 +37,7 @@ public class GameWindow {
         height = 1366;
         width = 768;
         title = "Mario";
-        color = new RGBA(1, 1, 1, 1, true);
+        color = new RGBA(1, 1, 1, 1);
     }
 
     private void init() {
@@ -99,9 +100,7 @@ public class GameWindow {
 
         // Make the window visible
         glfwShowWindow(windowHandle);
-    }
 
-    private void loop() {
         // This line is critical for LWJGL's interoperation with GLFW's
         // OpenGL context, or any context that is managed externally.
         // LWJGL detects the context that is current in the current thread,
@@ -109,9 +108,20 @@ public class GameWindow {
         // bindings available for use.
         GL.createCapabilities();
 
+        changeScene(0);
+    }
+
+    private void loop() {
+        float beginTime = Time.getTime();
+        float endTime;
+        float dt = -1.0f;
+
         // Run the rendering loop until the user has attempted to close
         // the window or has pressed the ESCAPE key.
         while (!glfwWindowShouldClose(windowHandle)) {
+            // Poll for window events. The key callback above will only be
+            // invoked during this call.
+            glfwPollEvents();
             // Set the clear color
             glClearColor(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
             // clear the framebuffer
@@ -119,9 +129,13 @@ public class GameWindow {
 
             glfwSwapBuffers(windowHandle); // swap the color buffers
 
-            // Poll for window events. The key callback above will only be
-            // invoked during this call.
-            glfwPollEvents();
+            if (dt >= 0) {
+                currentScene.update(dt);
+            }
+
+            endTime = Time.getTime();
+            dt = endTime - beginTime;
+            beginTime = endTime;
         }
     }
 
@@ -148,14 +162,17 @@ public class GameWindow {
 
     public void changeScene(int scene) {
         switch (scene) {
-            case 0:
+            case 0 -> {
                 currentScene = new LevelEditorScene();
-                break;
-            case 1:
+                currentScene.inti();
+            }
+            case 1 -> {
                 currentScene = new LevelScene();
-                break;
-            default:
-                assert false: "Unknown scene: " + scene + System.lineSeparator();
+                currentScene.inti();
+            }
+            default -> {
+                assert false : "Unknown scene: " + scene + System.lineSeparator();
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-package game.mouse;
+package game.window.mouse;
 
 import lombok.Getter;
 import lombok.Setter;

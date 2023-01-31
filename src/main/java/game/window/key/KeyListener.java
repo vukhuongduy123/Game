@@ -1,4 +1,4 @@
-package game.key;
+package game.window.key;
 
 import lombok.Getter;
 import lombok.Setter;

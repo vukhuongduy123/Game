@@ -1,4 +1,4 @@
-package game.ulti;
+package game.window.ulti;
 
 public class Time {
     public static float timeStart = System.nanoTime();
