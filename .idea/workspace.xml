@@ -4,26 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16457370-ea6e-4fb8-90e6-34303b1017b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/window/scene/LevelEditorScene.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/window/ulti/Conversion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/window/ulti/Pair.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/window/ulti/Position.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/fragment.glsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/vertex.glsl" afterDir="false" />
+    <list default="true" id="91f77094-20b7-4457-824f-8c747a43e37f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/window/render/Shader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GameMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/GameWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/key/KeyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/key/KeyListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/mouse/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/mouse/MouseListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/scene/LevelEditorScene.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/scene/LevelScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/scene/LevelScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/scene/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/ulti/RGBA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/ulti/RGBA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/ulti/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/ulti/Time.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/window/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/window/scene/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/scene/LevelEditorScene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,14 +34,18 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="workspaceImportEnabled" value="true" />
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2KOgXCPqF2KtQSOj0T5lqToqxKt" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2L7K8PlPRbd7yIM9uisv2DL4PQE" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -60,46 +54,44 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/Self Study Course/java/Game",
+    "last_opened_file_path": "C:/Users/Admin/Desktop/New folder/GameEngine",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-  </component>
   <component name="RunManager">
-    <configuration name="GameMain" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="GameMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="game.GameMain" />
       <module name="GameEngine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GameMain" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="16457370-ea6e-4fb8-90e6-34303b1017b9" name="Changes" comment="" />
-      <created>1673851084558</created>
+      <changelist id="91f77094-20b7-4457-824f-8c747a43e37f" name="Changes" comment="" />
+      <created>1675216523719</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1673851084558</updated>
-      <workItem from="1673851086078" duration="4199000" />
-      <workItem from="1673920386584" duration="4094000" />
-      <workItem from="1674785826967" duration="1184000" />
-      <workItem from="1674980419939" duration="485000" />
-      <workItem from="1674980924152" duration="9434000" />
+      <updated>1675216523719</updated>
+      <workItem from="1675216524728" duration="2506000" />
     </task>
     <servers />
   </component>
