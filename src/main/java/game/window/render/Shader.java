@@ -2,7 +2,10 @@ package game.window.render;
 
 import game.GameMain;
 import lombok.SneakyThrows;
+import org.joml.Matrix4f;
+import org.lwjgl.BufferUtils;
 
+import java.nio.FloatBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
@@ -51,7 +54,7 @@ public class Shader {
         if (glGetProgrami(shaderProgramId, GL_LINK_STATUS) == GL_FALSE) {
             System.out.println("ERROR: default linking shader error");
             System.out.println(glGetProgramInfoLog(shaderProgramId, glGetProgrami(shaderProgramId,
-                                                                                GL_INFO_LOG_LENGTH)));
+                                                                                  GL_INFO_LOG_LENGTH)));
             assert false : glGetProgramInfoLog(shaderProgramId,
                                                glGetProgrami(shaderProgramId, GL_INFO_LOG_LENGTH));
         }
@@ -65,5 +68,12 @@ public class Shader {
 
     public void detach() {
         glUseProgram(0);
+    }
+
+    public void uploadMatrix(String name, Matrix4f matrix) {
+        int location = glGetUniformLocation(shaderProgramId, name);
+        FloatBuffer floatBuffer = BufferUtils.createFloatBuffer(4 * 4);
+        matrix.get(floatBuffer);
+        glUniformMatrix4fv(location, false, floatBuffer);
     }
 }

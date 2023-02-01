@@ -1,21 +1,20 @@
 package game.window.scene;
 
-import game.GameMain;
 import game.window.render.Shader;
 import game.window.ulti.Conversion;
 import game.window.ulti.Pair;
 import game.window.ulti.Position;
 import game.window.ulti.RGBA;
+import game.window.view.Camera;
 import lombok.SneakyThrows;
+import org.joml.Vector2f;
 import org.lwjgl.BufferUtils;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL30.glBindVertexArray;
@@ -26,10 +25,10 @@ public class LevelEditorScene extends Scene {
     private int vaoID;
 
     private final List<Pair<Position, RGBA>> vertexes = new ArrayList<>() {{
-        add(new Pair<>(new Position(0.5f, -0.5f, 0.0f), new RGBA(1.0f, 0.0f, 0.0f, 1.0f)));
-        add(new Pair<>(new Position(-0.5f, 0.5f, 0.0f), new RGBA(0.0f, 1.0f, 0.0f, 1.0f)));
-        add(new Pair<>(new Position(0.5f, 0.5f, 0.0f), new RGBA(1.0f, 0.0f, 1.0f, 1.0f)));
-        add(new Pair<>(new Position(-0.5f, -0.5f, 0.0f), new RGBA(1.0f, 1.0f, 0.0f, 1.0f)));
+        add(new Pair<>(new Position(100.5f, 0.5f, 0.0f), new RGBA(1.0f, 0.0f, 0.0f, 1.0f)));
+        add(new Pair<>(new Position(0.5f, 100.5f, 0.0f), new RGBA(0.0f, 1.0f, 0.0f, 1.0f)));
+        add(new Pair<>(new Position(100.5f, 100.5f, 0.0f), new RGBA(1.0f, 0.0f, 1.0f, 1.0f)));
+        add(new Pair<>(new Position(0.5f, 0.5f, 0.0f), new RGBA(1.0f, 1.0f, 0.0f, 1.0f)));
     }};
 
     // IMPORTANT: Must be in counter-clockwise order
@@ -44,7 +43,11 @@ public class LevelEditorScene extends Scene {
 
     @Override
     public void update(float dt) {
+        camera.getPosition().x -= dt * 50.0f;
+        camera.getPosition().y -= dt * 20.0f;
         shader.use();
+        shader.uploadMatrix("uProjection", camera.getProjectionMatrix());
+        shader.uploadMatrix("uView", camera.getViewMatrix());
         // Bind the VAO that we're using
         glBindVertexArray(vaoID);
 
@@ -65,6 +68,7 @@ public class LevelEditorScene extends Scene {
     @Override
     @SneakyThrows
     public void inti() {
+        this.camera = new Camera(new Vector2f());
         shader = new Shader("/assets/shaders/vertex.glsl", "/assets/shaders/fragment.glsl");
         shader.compile();
         // ============================================================
