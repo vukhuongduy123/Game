@@ -45,7 +45,6 @@ public class LevelEditorScene extends Scene {
     public void update(float dt) {
         camera.getPosition().x -= dt * 50.0f;
         camera.getPosition().y -= dt * 20.0f;
-        shader.use();
         shader.uploadMatrix("uProjection", camera.getProjectionMatrix());
         shader.uploadMatrix("uView", camera.getViewMatrix());
         // Bind the VAO that we're using

@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91f77094-20b7-4457-824f-8c747a43e37f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/window/view/Camera.java" afterDir="false" />
+    <list default="true" id="91f77094-20b7-4457-824f-8c747a43e37f" name="Changes" comment="Add camera">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/window/render/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/render/Shader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/window/scene/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/scene/LevelEditorScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/window/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/scene/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/shaders/vertex.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/vertex.glsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/shaders/fragment.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/fragment.glsl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +55,9 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -89,11 +89,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1675216523719</updated>
-      <workItem from="1675216524728" duration="8026000" />
+      <workItem from="1675216524728" duration="10930000" />
     </task>
+    <task id="LOCAL-00001" summary="Add camera">
+      <created>1675233377187</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1675233377187</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add camera" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add camera" />
   </component>
 </project>
