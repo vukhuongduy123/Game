@@ -1,10 +1,7 @@
 package game.window.scene;
 
 import game.GameMain;
-import game.window.ulti.Conversion;
-import game.window.ulti.Pair;
-import game.window.ulti.Position;
-import game.window.ulti.RGBA;
+import game.window.ulti.*;
 import lombok.SneakyThrows;
 import org.lwjgl.BufferUtils;
 
@@ -23,11 +20,19 @@ public class LevelEditorScene extends Scene {
     private int shaderProgram;
     private int vaoID;
 
-    private final List<Pair<Position, RGBA>> vertexes = new ArrayList<>() {{
-        add(new Pair<>(new Position(0.5f, -0.5f, 0.0f), new RGBA(1.0f, 0.0f, 0.0f, 1.0f)));
-        add(new Pair<>(new Position(-0.5f, 0.5f, 0.0f), new RGBA(0.0f, 1.0f, 0.0f, 1.0f)));
-        add(new Pair<>(new Position(0.5f, 0.5f, 0.0f), new RGBA(1.0f, 0.0f, 1.0f, 1.0f)));
-        add(new Pair<>(new Position(-0.5f, -0.5f, 0.0f), new RGBA(1.0f, 1.0f, 0.0f, 1.0f)));
+    private final List<Vertex> vertexes = new ArrayList<>() {{
+        add(new Vertex(new Vertex.Position(0.5f, -0.5f, 0.0f),
+                new Vertex.RGBA(1.0f, 0.0f, 0.0f, 1.0f),
+                new Vertex.UVCoordinate(1, 0)));
+        add(new Vertex(new Vertex.Position(-0.5f, 0.5f, 0.0f),
+                new Vertex.RGBA(0.0f, 1.0f, 0.0f, 1.0f),
+                new Vertex.UVCoordinate(0, 1)));
+        add(new Vertex(new Vertex.Position(0.5f, 0.5f, 0.0f),
+                new Vertex.RGBA(1.0f, 0.0f, 1.0f, 1.0f),
+                new Vertex.UVCoordinate(1, 1)));
+        add(new Vertex(new Vertex.Position(-0.5f, -0.5f, 0.0f),
+                new Vertex.RGBA(1.0f, 1.0f, 0.0f, 1.0f),
+                new Vertex.UVCoordinate(0, 0)));
     }};
 
     // IMPORTANT: Must be in counter-clockwise order
@@ -127,12 +132,11 @@ public class LevelEditorScene extends Scene {
         // Add the vertex attribute pointers
         int positionsSize = 3;
         int colorSize = 4;
-        int floatSizeBytes = 4;
-        int vertexSizeBytes = (positionsSize + colorSize) * floatSizeBytes;
+        int vertexSizeBytes = (positionsSize + colorSize) * Float.BYTES;
         glVertexAttribPointer(0, positionsSize, GL_FLOAT, false, vertexSizeBytes, 0);
         glEnableVertexAttribArray(0);
 
-        glVertexAttribPointer(1, colorSize, GL_FLOAT, false, vertexSizeBytes, positionsSize * floatSizeBytes);
+        glVertexAttribPointer(1, colorSize, GL_FLOAT, false, vertexSizeBytes, positionsSize * Float.BYTES);
         glEnableVertexAttribArray(1);
     }
 }

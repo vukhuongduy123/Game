@@ -3,10 +3,10 @@ package game.window;
 import game.window.scene.LevelEditorScene;
 import game.window.scene.LevelScene;
 import game.window.scene.Scene;
-import game.window.ulti.RGBA;
 import game.window.key.KeyListener;
 import game.window.mouse.MouseListener;
 import game.window.ulti.Time;
+import game.window.ulti.Vertex;
 import lombok.Getter;
 import lombok.Setter;
 import org.lwjgl.*;
@@ -30,14 +30,14 @@ public class GameWindow {
     private final String title;
     private long windowHandle;
     private static GameWindow gameWindow;
-    private RGBA color;
+    private Vertex.RGBA color;
     private Scene currentScene;
 
     private GameWindow() {
         height = 1366;
         width = 768;
         title = "Mario";
-        color = new RGBA(1, 1, 1, 1);
+        color = new Vertex.RGBA(1, 1, 1, 1);
     }
 
     private void init() {

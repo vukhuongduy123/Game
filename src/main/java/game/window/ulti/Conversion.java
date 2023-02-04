@@ -1,21 +1,21 @@
 package game.window.ulti;
 
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
 import java.util.List;
 
 public class Conversion {
-    public static float[] convertToFloatArray(List<Pair<Position, RGBA>> list) {
-        float[] floats = new float[list.size() * 7];
-        for (int i = 0; i < list.size(); i++) {
-            floats[i * 7] = list.get(i).getFirst().getX();
-            floats[i * 7 + 1] = list.get(i).getFirst().getY();
-            floats[i * 7 + 2] = list.get(i).getFirst().getZ();
-            floats[i * 7 + 3] = list.get(i).getSecond().getRed();
-            floats[i * 7 + 4]  = list.get(i).getSecond().getGreen();
-            floats[i * 7 + 5]  = list.get(i).getSecond().getBlue();
-            floats[i * 7 + 6] = list.get(i).getSecond().getAlpha();
+    public static float[] convertToFloatArray(List<Vertex> vertices) {
+        int numOfElements = 9;
+        float[] floats = new float[vertices.size() * numOfElements];
+        for (int i = 0; i < vertices.size(); i++) {
+            floats[i * numOfElements] = vertices.get(i).getPosition().getX();;
+            floats[i * numOfElements + 1] = vertices.get(i).getPosition().getY();
+            floats[i * numOfElements + 2] = vertices.get(i).getPosition().getZ();
+            floats[i * numOfElements + 3] = vertices.get(i).getRgba().getRed();
+            floats[i * numOfElements + 4]  = vertices.get(i).getRgba().getGreen();
+            floats[i * numOfElements + 5]  = vertices.get(i).getRgba().getBlue();
+            floats[i * numOfElements + 6] = vertices.get(i).getRgba().getAlpha();
+            floats[i * numOfElements + 7] = vertices.get(i).getUvCoordinate().getX();
+            floats[i * numOfElements + 8] = vertices.get(i).getUvCoordinate().getY();
         }
 
         return floats;
