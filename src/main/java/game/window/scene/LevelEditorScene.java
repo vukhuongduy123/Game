@@ -1,36 +1,39 @@
 package game.window.scene;
 
-import game.GameMain;
 import game.window.ulti.*;
+
+import game.window.render.Shader;
+import game.window.ulti.Conversion;
+import game.window.view.Camera;
 import lombok.SneakyThrows;
+import org.joml.Vector2f;
 import org.lwjgl.BufferUtils;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
 public class LevelEditorScene extends Scene {
-    private int shaderProgram;
+    private Shader shader;
     private int vaoID;
 
     private final List<Vertex> vertexes = new ArrayList<>() {{
-        add(new Vertex(new Vertex.Position(0.5f, -0.5f, 0.0f),
+        add(new Vertex(new Vertex.Position(100.5f, 0.5f, 0.0f),
                 new Vertex.RGBA(1.0f, 0.0f, 0.0f, 1.0f),
                 new Vertex.UVCoordinate(1, 0)));
-        add(new Vertex(new Vertex.Position(-0.5f, 0.5f, 0.0f),
+        add(new Vertex(new Vertex.Position(0.5f, 100.5f, 0.0f),
                 new Vertex.RGBA(0.0f, 1.0f, 0.0f, 1.0f),
                 new Vertex.UVCoordinate(0, 1)));
-        add(new Vertex(new Vertex.Position(0.5f, 0.5f, 0.0f),
+        add(new Vertex(new Vertex.Position(100.5f, 100.5f, 0.0f),
                 new Vertex.RGBA(1.0f, 0.0f, 1.0f, 1.0f),
                 new Vertex.UVCoordinate(1, 1)));
-        add(new Vertex(new Vertex.Position(-0.5f, -0.5f, 0.0f),
+        add(new Vertex(new Vertex.Position(0.5f, 0.5f, 0.0f),
                 new Vertex.RGBA(1.0f, 1.0f, 0.0f, 1.0f),
                 new Vertex.UVCoordinate(0, 0)));
     }};
@@ -47,8 +50,10 @@ public class LevelEditorScene extends Scene {
 
     @Override
     public void update(float dt) {
-        // Bind shader program
-        glUseProgram(shaderProgram);
+        camera.getPosition().x -= dt * 50.0f;
+        camera.getPosition().y -= dt * 20.0f;
+        shader.uploadMatrix("uProjection", camera.getProjectionMatrix());
+        shader.uploadMatrix("uView", camera.getViewMatrix());
         // Bind the VAO that we're using
         glBindVertexArray(vaoID);
 
@@ -63,47 +68,15 @@ public class LevelEditorScene extends Scene {
         glDisableVertexAttribArray(1);
 
         glBindVertexArray(0);
-
-        glUseProgram(0);
+        shader.detach();
     }
 
     @Override
     @SneakyThrows
     public void inti() {
-        String vertexShader = new String(Objects.requireNonNull(
-                GameMain.class.getResourceAsStream("/assets/shaders/vertex.glsl")).readAllBytes(), StandardCharsets.UTF_8);
-        String fragmentShader = new String(Objects.requireNonNull(
-                GameMain.class.getResourceAsStream("/assets/shaders/fragment.glsl")).readAllBytes(), StandardCharsets.UTF_8);
-
-        int vertexID = glCreateShader(GL_VERTEX_SHADER);
-        glShaderSource(vertexID, vertexShader);
-        glCompileShader(vertexID);
-
-        if (glGetShaderi(vertexID, GL_COMPILE_STATUS) == GL_FALSE) {
-            System.out.println("ERROR: default vertex shader error");
-            assert false : glGetShaderInfoLog(vertexID, glGetShaderi(vertexID, GL_INFO_LOG_LENGTH));
-        }
-
-        int fragmentID = glCreateShader(GL_FRAGMENT_SHADER);
-        glShaderSource(fragmentID, fragmentShader);
-        glCompileShader(fragmentID);
-
-        if (glGetShaderi(fragmentID, GL_COMPILE_STATUS) == GL_FALSE) {
-            System.out.println("ERROR: default fragment shader error");
-            assert false : glGetShaderInfoLog(fragmentID, glGetShaderi(fragmentID, GL_INFO_LOG_LENGTH));
-        }
-
-        shaderProgram = glCreateProgram();
-        glAttachShader(shaderProgram, vertexID);
-        glAttachShader(shaderProgram, fragmentID);
-        glLinkProgram(shaderProgram);
-
-        if (glGetProgrami(shaderProgram, GL_LINK_STATUS) == GL_FALSE) {
-            System.out.println("ERROR: default linking shader error");
-            System.out.println(glGetProgramInfoLog(shaderProgram, glGetProgrami(shaderProgram, GL_INFO_LOG_LENGTH)));
-            assert false : glGetProgramInfoLog(shaderProgram, glGetProgrami(shaderProgram, GL_INFO_LOG_LENGTH));
-        }
-
+        this.camera = new Camera(new Vector2f());
+        shader = new Shader("/assets/shaders/vertex.glsl", "/assets/shaders/fragment.glsl");
+        shader.compile();
         // ============================================================
         // Generate VAO, VBO, and EBO buffer objects, and send to GPU
         // ============================================================
@@ -115,6 +88,7 @@ public class LevelEditorScene extends Scene {
         // Create a float buffer of vertices
         FloatBuffer vertexBuffer = BufferUtils.createFloatBuffer(vertexes.size() * 7);
         vertexBuffer.put(Conversion.convertToFloatArray(vertexes)).flip();
+        System.out.println(Arrays.toString(Conversion.convertToFloatArray(vertexes)));
 
         // Create VBO upload the vertex buffer
         int vertexBufferObjectID = glGenBuffers();
@@ -132,6 +106,7 @@ public class LevelEditorScene extends Scene {
         // Add the vertex attribute pointers
         int positionsSize = 3;
         int colorSize = 4;
+
         int vertexSizeBytes = (positionsSize + colorSize) * Float.BYTES;
         glVertexAttribPointer(0, positionsSize, GL_FLOAT, false, vertexSizeBytes, 0);
         glEnableVertexAttribArray(0);

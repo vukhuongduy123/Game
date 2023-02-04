@@ -54,6 +54,7 @@ public class GameWindow {
         glfwDefaultWindowHints(); // optional, the current window hints are already the default
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // the window will stay hidden after creation
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // the window will be resizable
+        glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
 
         // Create the window
         windowHandle = glfwCreateWindow(width, height, title, NULL, NULL);
@@ -127,11 +128,13 @@ public class GameWindow {
             // clear the framebuffer
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-            glfwSwapBuffers(windowHandle); // swap the color buffers
 
             if (dt >= 0) {
                 currentScene.update(dt);
             }
+
+            glfwSwapBuffers(windowHandle); // swap the color buffers
+
 
             endTime = Time.getTime();
             dt = endTime - beginTime;
@@ -162,17 +165,16 @@ public class GameWindow {
 
     public void changeScene(int scene) {
         switch (scene) {
-            case 0 -> {
+            case 0:
                 currentScene = new LevelEditorScene();
                 currentScene.inti();
-            }
-            case 1 -> {
+                break;
+            case 1:
                 currentScene = new LevelScene();
                 currentScene.inti();
-            }
-            default -> {
+                break;
+            default:
                 assert false : "Unknown scene: " + scene + System.lineSeparator();
-            }
         }
     }
 }
