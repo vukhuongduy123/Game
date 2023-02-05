@@ -1,5 +1,6 @@
 package game.window;
 
+import game.window.render.Texture;
 import game.window.scene.LevelEditorScene;
 import game.window.scene.LevelScene;
 import game.window.scene.Scene;
@@ -128,13 +129,11 @@ public class GameWindow {
             // clear the framebuffer
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-
             if (dt >= 0) {
                 currentScene.update(dt);
             }
 
             glfwSwapBuffers(windowHandle); // swap the color buffers
-
 
             endTime = Time.getTime();
             dt = endTime - beginTime;
@@ -165,16 +164,17 @@ public class GameWindow {
 
     public void changeScene(int scene) {
         switch (scene) {
-            case 0:
+            case 0 -> {
                 currentScene = new LevelEditorScene();
                 currentScene.inti();
-                break;
-            case 1:
+            }
+            case 1 -> {
                 currentScene = new LevelScene();
                 currentScene.inti();
-                break;
-            default:
+            }
+            default -> {
                 assert false : "Unknown scene: " + scene + System.lineSeparator();
+            }
         }
     }
 }

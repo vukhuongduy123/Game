@@ -4,20 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="16457370-ea6e-4fb8-90e6-34303b1017b9" name="Changes" comment="">
+    <list default="true" id="73cb9fd6-ad5d-4441-918a-eb95194a7c48" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/hs_err_pid11052.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hs_err_pid11084.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hs_err_pid1248.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hs_err_pid6376.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hs_err_pid9376.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/window/render/Texture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/images/image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/images/pacman.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/window/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/GameWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/window/scene/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/scene/LevelEditorScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/window/ulti/Conversion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/ulti/Conversion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/window/ulti/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/ulti/Vertex.java" afterDir="false" />
-=======
-    <list default="true" id="91f77094-20b7-4457-824f-8c747a43e37f" name="Changes" comment="Add camera">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/window/render/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/render/Shader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/window/scene/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/scene/LevelEditorScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/assets/shaders/fragment.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/fragment.glsl" afterDir="false" />
->>>>>>> f40f28026addd274263beec51855536121c11753
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/shaders/vertex.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/vertex.glsl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,64 +40,27 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
+  <component name="ProjectId" id="2LJNdiQqbK5t5rB4kGQxQ1OAhVa" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectId" id="2L7K8PlPRbd7yIM9uisv2DL4PQE" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Self Study Course/java/Game&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
-  <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-  </component>
-=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Admin/Desktop/New folder/GameEngine",
     "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
->>>>>>> f40f28026addd274263beec51855536121c11753
   <component name="RunManager">
     <configuration name="GameMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="game.GameMain" />
@@ -118,38 +84,30 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="91f77094-20b7-4457-824f-8c747a43e37f" name="Changes" comment="" />
-      <created>1675216523719</created>
+      <changelist id="73cb9fd6-ad5d-4441-918a-eb95194a7c48" name="Changes" comment="" />
+      <created>1675585323214</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-<<<<<<< HEAD
-      <updated>1673851084558</updated>
-      <workItem from="1673851086078" duration="4199000" />
-      <workItem from="1673920386584" duration="4094000" />
-      <workItem from="1674785826967" duration="1184000" />
-      <workItem from="1674980419939" duration="485000" />
-      <workItem from="1674980924152" duration="9434000" />
-      <workItem from="1675442889285" duration="2426000" />
-=======
-      <updated>1675216523719</updated>
-      <workItem from="1675216524728" duration="10930000" />
->>>>>>> f40f28026addd274263beec51855536121c11753
+      <updated>1675585323214</updated>
+      <workItem from="1675585324698" duration="3271000" />
     </task>
-    <task id="LOCAL-00001" summary="Add camera">
-      <created>1675233377187</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1675233377187</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add camera" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add camera" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/lwjgl/lwjgl-stb/3.3.1/lwjgl-stb-3.3.1.jar!/org/lwjgl/stb/STBImage.class</url>
+          <line>62</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

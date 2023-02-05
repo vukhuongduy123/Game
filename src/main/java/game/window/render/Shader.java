@@ -37,6 +37,7 @@ public class Shader {
 
         if (glGetShaderi(vertexID, GL_COMPILE_STATUS) == GL_FALSE) {
             System.out.println("ERROR: default vertex shader error");
+            System.out.println(glGetShaderInfoLog(vertexID, glGetShaderi(vertexID, GL_INFO_LOG_LENGTH)));
             assert false : glGetShaderInfoLog(vertexID, glGetShaderi(vertexID, GL_INFO_LOG_LENGTH));
         }
 
@@ -114,5 +115,11 @@ public class Shader {
         int varLocation = glGetUniformLocation(shaderProgramId, name);
         use();
         glUniform2f(varLocation, vec.x, vec.y);
+    }
+
+    public void uploadTexture(String name, int slot) {
+        int varLocation = glGetUniformLocation(shaderProgramId, name);
+        use();
+        glUniform1i(shaderProgramId, slot);
     }
 }

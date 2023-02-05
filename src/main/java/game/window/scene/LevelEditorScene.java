@@ -1,5 +1,6 @@
 package game.window.scene;
 
+import game.window.render.Texture;
 import game.window.ulti.*;
 
 import game.window.render.Shader;
@@ -22,20 +23,21 @@ import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 public class LevelEditorScene extends Scene {
     private Shader shader;
     private int vaoID;
+    private Texture pacmanTexture;
 
     private final List<Vertex> vertexes = new ArrayList<>() {{
-        add(new Vertex(new Vertex.Position(100.5f, 0.5f, 0.0f),
+        add(new Vertex(new Vertex.Position(100f, 0f, 0.0f),
                 new Vertex.RGBA(1.0f, 0.0f, 0.0f, 1.0f),
-                new Vertex.UVCoordinate(1, 0)));
-        add(new Vertex(new Vertex.Position(0.5f, 100.5f, 0.0f),
-                new Vertex.RGBA(0.0f, 1.0f, 0.0f, 1.0f),
-                new Vertex.UVCoordinate(0, 1)));
-        add(new Vertex(new Vertex.Position(100.5f, 100.5f, 0.0f),
-                new Vertex.RGBA(1.0f, 0.0f, 1.0f, 1.0f),
                 new Vertex.UVCoordinate(1, 1)));
-        add(new Vertex(new Vertex.Position(0.5f, 0.5f, 0.0f),
-                new Vertex.RGBA(1.0f, 1.0f, 0.0f, 1.0f),
+        add(new Vertex(new Vertex.Position(0f, 100f, 0.0f),
+                new Vertex.RGBA(0.0f, 1.0f, 0.0f, 1.0f),
                 new Vertex.UVCoordinate(0, 0)));
+        add(new Vertex(new Vertex.Position(100f, 100f, 0.0f),
+                new Vertex.RGBA(1.0f, 0.0f, 1.0f, 1.0f),
+                new Vertex.UVCoordinate(1, 0)));
+        add(new Vertex(new Vertex.Position(0f, 0f, 0.0f),
+                new Vertex.RGBA(1.0f, 1.0f, 0.0f, 1.0f),
+                new Vertex.UVCoordinate(0, 1)));
     }};
 
     // IMPORTANT: Must be in counter-clockwise order
@@ -52,6 +54,11 @@ public class LevelEditorScene extends Scene {
     public void update(float dt) {
         camera.getPosition().x -= dt * 50.0f;
         camera.getPosition().y -= dt * 20.0f;
+
+        shader.uploadTexture("TEX_SAMPLER", 0);
+        glActiveTexture(GL_TEXTURE0);
+        pacmanTexture.bind();
+
         shader.uploadMatrix("uProjection", camera.getProjectionMatrix());
         shader.uploadMatrix("uView", camera.getViewMatrix());
         // Bind the VAO that we're using
@@ -76,6 +83,7 @@ public class LevelEditorScene extends Scene {
     public void inti() {
         this.camera = new Camera(new Vector2f());
         shader = new Shader("/assets/shaders/vertex.glsl", "/assets/shaders/fragment.glsl");
+        pacmanTexture = new Texture("src/main/resources/assets/images/image.jpg");
         shader.compile();
         // ============================================================
         // Generate VAO, VBO, and EBO buffer objects, and send to GPU
@@ -86,7 +94,7 @@ public class LevelEditorScene extends Scene {
         System.out.println(vertexArrayObjectID);
 
         // Create a float buffer of vertices
-        FloatBuffer vertexBuffer = BufferUtils.createFloatBuffer(vertexes.size() * 7);
+        FloatBuffer vertexBuffer = BufferUtils.createFloatBuffer(vertexes.size() * 9);
         vertexBuffer.put(Conversion.convertToFloatArray(vertexes)).flip();
         System.out.println(Arrays.toString(Conversion.convertToFloatArray(vertexes)));
 
@@ -106,12 +114,15 @@ public class LevelEditorScene extends Scene {
         // Add the vertex attribute pointers
         int positionsSize = 3;
         int colorSize = 4;
-
-        int vertexSizeBytes = (positionsSize + colorSize) * Float.BYTES;
+        int uvSize = 2;
+        int vertexSizeBytes = (positionsSize + colorSize + uvSize) * Float.BYTES;
         glVertexAttribPointer(0, positionsSize, GL_FLOAT, false, vertexSizeBytes, 0);
         glEnableVertexAttribArray(0);
 
         glVertexAttribPointer(1, colorSize, GL_FLOAT, false, vertexSizeBytes, positionsSize * Float.BYTES);
         glEnableVertexAttribArray(1);
+
+        glVertexAttribPointer(2, uvSize, GL_FLOAT, false, vertexSizeBytes, (positionsSize + colorSize) * Float.BYTES);
+        glEnableVertexAttribArray(2);
     }
 }
