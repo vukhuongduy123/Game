@@ -6,25 +6,39 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 public class Vertex {
-    @AllArgsConstructor
+    public Vertex(Position position, RGBA rgba /*, UVCoordinate uvCoordinate*/) {
+        this.position = position;
+        this.rgba = rgba;
+        //this.uvCoordinate = uvCoordinate;
+    }
+
+    public static final int POS_2_SIZE = 2;
+    public static final int COLOR_SIZE = 4;
+    public static final int POS_OFFSET = 0;
+    public static final int COLOR_OFFSET = POS_OFFSET + POS_2_SIZE * Float.BYTES;
+    public static final int VERTEX_2_SIZE = 6;
+    public static final int VERTEX_2_SIZE_BYTES = VERTEX_2_SIZE * Float.BYTES;
+
     @NoArgsConstructor
     @Setter
     @Getter
     public static class Position {
-        private float x, y, z;
+        private float[] pos;
+
+        public Position(float[] pos) {
+            this.pos = pos;
+        }
     }
 
-    @AllArgsConstructor
+/*    @AllArgsConstructor
     @NoArgsConstructor
     @Setter
     @Getter
     public static class UVCoordinate {
         private int x, y;
-    }
+    }*/
 
     @Setter
     @AllArgsConstructor
@@ -37,5 +51,9 @@ public class Vertex {
     private Position position;
     private RGBA rgba;
 
-    private UVCoordinate uvCoordinate;
+    //private UVCoordinate uvCoordinate;
+
+    public static int getNumElements(Vertex vertex) {
+        return 4 + vertex.getPosition().pos.length;
+    }
 }

@@ -5,20 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73cb9fd6-ad5d-4441-918a-eb95194a7c48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/hs_err_pid11052.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hs_err_pid11084.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hs_err_pid1248.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hs_err_pid6376.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hs_err_pid9376.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/window/render/Texture.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/images/image.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/images/pacman.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/window/component/Component.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/window/component/GameObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/window/component/SpriteRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/window/render/RenderBatch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/window/render/Renderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/window/ulti/Transform.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/window/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/GameWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/window/render/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/render/Shader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/window/scene/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/scene/LevelEditorScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/window/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/scene/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/window/ulti/Conversion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/ulti/Conversion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/window/ulti/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/window/ulti/Vertex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/assets/shaders/fragment.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/fragment.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/assets/shaders/vertex.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/vertex.glsl" afterDir="false" />
     </list>
@@ -48,19 +47,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Self Study Course/java/GameTuturiol&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="GameMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="game.GameMain" />
@@ -89,12 +90,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1675585323214</updated>
-      <workItem from="1675585324698" duration="3271000" />
+      <workItem from="1675585324698" duration="14144000" />
+      <workItem from="1675682094800" duration="330000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

@@ -1,6 +1,5 @@
 package game.window;
 
-import game.window.render.Texture;
 import game.window.scene.LevelEditorScene;
 import game.window.scene.LevelScene;
 import game.window.scene.Scene;
@@ -38,7 +37,7 @@ public class GameWindow {
         height = 1366;
         width = 768;
         title = "Mario";
-        color = new Vertex.RGBA(1, 1, 1, 1);
+        color = new Vertex.RGBA(0, 0, 0, 1);
     }
 
     private void init() {
@@ -167,10 +166,12 @@ public class GameWindow {
             case 0 -> {
                 currentScene = new LevelEditorScene();
                 currentScene.inti();
+                currentScene.start();
             }
             case 1 -> {
                 currentScene = new LevelScene();
                 currentScene.inti();
+                currentScene.start();
             }
             default -> {
                 assert false : "Unknown scene: " + scene + System.lineSeparator();
